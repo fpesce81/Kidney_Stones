@@ -547,12 +547,18 @@ elif page == "Oxalate Content Finder":
     st.header("Oxalate Content Finder")
     st.write("Search for the oxalate content of various foods. Data is sourced from the Oxalate-Content-Finder repository.")
 
+    @st.cache_data
     def get_oxalate_data():
         try:
-            # The data is in a JSON file, which is much easier to parse.
-            with open('Oxalate-Content-Finder/locales/en.json', 'r') as f:
-                data = json.load(f)
-            # Now, data is a dictionary, and we can safely access 'food_data'
+            import requests
+            import json
+            # Fetch the data directly from the raw GitHub URL
+            url = "https://raw.githubusercontent.com/fpesce81/Oxalate-Content-Finder/main/locales/en.json"
+            response = requests.get(url)
+            response.raise_for_status()  # Raise an exception for bad status codes
+            data = response.json()
+
+            # The data is nested under the 'food_data' key
             food_data_list = data.get('food_data', [])
             return pd.DataFrame(food_data_list)
         except Exception as e:
