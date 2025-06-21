@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 import json
 
@@ -321,20 +320,13 @@ elif page == "24-Hour Urine Analysis":
 
                 st.table(pd.DataFrame(interpretation_data))
 
-                # Example of a simple plot: Urine Volume vs. Goal
-                # Set DPI for hi-res plots
-                fig, ax = plt.subplots(figsize=(8, 4), dpi=1200)
-                current_volume = st.session_state['urine_profile']['volume_L']
-                goal_volume = 2.5
-                volumes = [current_volume, goal_volume]
-                labels = ["Current Volume", "Goal Volume"]
-
-                ax.bar(labels, volumes, color=['skyblue', 'lightcoral'])
-                ax.set_ylabel("Volume (L)")
-                ax.set_title("Urine Volume: Current vs. Goal")
-                ax.set_ylim(0, max(current_volume, goal_volume) * 1.2)
-                st.pyplot(fig)  # Displays the plot
-                plt.close(fig)  # Close the figure to free memory
+                # Replace matplotlib with a native Streamlit bar chart to reduce bundle size
+                st.subheader("Urine Volume: Current vs. Goal")
+                # Create data in a linter-friendly way
+                data = {'Category': ["Current Volume", "Goal Volume"],
+                        'Volume (L)': [st.session_state['urine_profile']['volume_L'], 2.5]}
+                chart_df = pd.DataFrame(data).set_index('Category')
+                st.bar_chart(chart_df)
 
 # --- Acute Stone Management Page ---
 elif page == "Acute Stone Management":
