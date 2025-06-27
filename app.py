@@ -426,9 +426,9 @@ elif page == "Educational Resources":
     st.write(
         "Kidney stone disease, also known as nephrolithiasis or urolithiasis, is a disorder in which urinary solutes precipitate to form aggregates of crystalline material in the urinary space. The formation is a complex biologic process involving a balance of crystallization inhibitors and promoters, urine volume, and urine pH. [cite: 7, 305-306, 390-392]")
 
-    # Using markdown for image placeholders, as actual image files aren't provided
-    st.markdown(
-        "![Figure 1: Overview of Pathogenesis](https://placehold.co/600x400/FF5733/FFFFFF?text=FIGURE+1)")
+    # Insert the actual Figure 1 image
+    st.image('figure1_pathogenesis.png',
+             caption='Figure 1: Overview of Pathogenesis', use_column_width=True)
     st.markdown("---")
 
     st.subheader("Common Stone Types")
