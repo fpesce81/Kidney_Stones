@@ -537,20 +537,15 @@ elif page == "Educational Resources":
 # --- Oxalate Content Finder Page ---
 elif page == "Oxalate Content Finder":
     st.header("Oxalate Content Finder")
-    st.write("Search for the oxalate content of various foods. Data is sourced from the Oxalate-Content-Finder repository.")
+    st.write(
+        "Search for the oxalate content of various foods. Data is loaded from a local file.")
 
     @st.cache_data
     def get_oxalate_data():
         try:
-            import requests
             import json
-            # Fetch the data directly from the raw GitHub URL
-            url = "https://raw.githubusercontent.com/fpesce81/Oxalate-Content-Finder/main/locales/en.json"
-            response = requests.get(url)
-            response.raise_for_status()  # Raise an exception for bad status codes
-            data = response.json()
-
-            # The data is nested under the 'food_data' key
+            with open('oxalate_en.json', 'r', encoding='utf-8') as f:
+                data = json.load(f)
             food_data_list = data.get('food_data', [])
             return pd.DataFrame(food_data_list)
         except Exception as e:
@@ -582,4 +577,3 @@ elif page == "Oxalate Content Finder":
 st.sidebar.markdown("---")
 st.sidebar.markdown("**About This App:**")
 st.sidebar.info("Developed by a Nephrology Professor and Data Scientist for educational and clinical decision support based on the AJKD Core Curriculum 2023 on Kidney Stone Pathophysiology, Evaluation, and Management. This app is for informational purposes only and does not substitute professional medical advice.")
- 

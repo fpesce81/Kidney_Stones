@@ -1,0 +1,500 @@
+{
+    "title": "Oxalate Content Finder",
+    "search_heading": "Search for Food",
+    "search_label": "Enter Food Name or Category:",
+    "search_placeholder": "e.g., Spinach, Fruit",
+    "search_button": "Search",
+    "results_heading": "Search Results",
+    "results_prompt": "Enter a food name above to see its oxalate content.",
+    "results_for": "Search Results for",
+    "no_results": "No results found for",
+    "please_enter_food": "Please enter a food name to search.",
+    "understanding_heading": "Understanding Oxalate Levels",
+    "understanding_intro": "The oxalate content is categorized as follows:",
+    "very_high": "Very High",
+    "high": "High",
+    "moderate": "Moderate",
+    "low": "Low",
+    "very_low": "Very Low",
+    "disclaimer": "Disclaimer: This information is for educational purposes only and should not replace professional medical advice.",
+    "sort_default": "Default",
+    "sort_asc": "Sort: Low to High",
+    "sort_desc": "Sort: High to Low",
+    "food_data": [
+        {
+            "food": "Spinach",
+            "type": "Vegetable",
+            "oxalate_mg": 656
+        },
+        {
+            "food": "Rhubarb",
+            "type": "Vegetable",
+            "oxalate_mg": 541
+        },
+        {
+            "food": "Beet Greens",
+            "type": "Vegetable",
+            "oxalate_mg": 300
+        },
+        {
+            "food": "Beets",
+            "type": "Vegetable",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Swiss Chard",
+            "type": "Vegetable",
+            "oxalate_mg": 300
+        },
+        {
+            "food": "Kale",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Broccoli",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Carrots",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Celery",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Cucumber",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Lettuce (Iceberg)",
+            "type": "Vegetable",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Green Beans",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Potatoes (baked, with skin)",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Sweet Potatoes",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Tomatoes",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Bell Peppers",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Zucchini",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Asparagus",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Cabbage",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Cauliflower",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Onions",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Garlic",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Mushrooms",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Corn",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Peas",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Artichoke",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Brussels Sprouts",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Collard Greens",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Dandelion Greens",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Endive",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Kohlrabi",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Leeks",
+            "type": "Vegetable",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Mustard Greens",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Okra",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Parsley",
+            "type": "Herb",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Watercress",
+            "type": "Vegetable",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Berries (mixed)",
+            "type": "Fruit",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Blackberries",
+            "type": "Fruit",
+            "oxalate_mg": 20
+        },
+        {
+            "food": "Raspberries",
+            "type": "Fruit",
+            "oxalate_mg": 48
+        },
+        {
+            "food": "Strawberries",
+            "type": "Fruit",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Blueberries",
+            "type": "Fruit",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Kiwi",
+            "type": "Fruit",
+            "oxalate_mg": 20
+        },
+        {
+            "food": "Oranges",
+            "type": "Fruit",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Apples",
+            "type": "Fruit",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Bananas",
+            "type": "Fruit",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Grapes",
+            "type": "Fruit",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Melons (Cantaloupe, Watermelon)",
+            "type": "Fruit",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Peaches",
+            "type": "Fruit",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Pears",
+            "type": "Fruit",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Pineapple",
+            "type": "Fruit",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Plums",
+            "type": "Fruit",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Cherries",
+            "type": "Fruit",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Lemon/Lime (juice)",
+            "type": "Fruit",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Avocado",
+            "type": "Fruit",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Figs",
+            "type": "Fruit",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Dates",
+            "type": "Fruit",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Almonds",
+            "type": "Nut",
+            "oxalate_mg": 122
+        },
+        {
+            "food": "Cashews",
+            "type": "Nut",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Peanuts",
+            "type": "Nut",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Pecans",
+            "type": "Nut",
+            "oxalate_mg": 40
+        },
+        {
+            "food": "Walnuts",
+            "type": "Nut",
+            "oxalate_mg": 20
+        },
+        {
+            "food": "Sesame Seeds",
+            "type": "Seed",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Sunflower Seeds",
+            "type": "Seed",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Pumpkin Seeds",
+            "type": "Seed",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Chia Seeds",
+            "type": "Seed",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Flax Seeds",
+            "type": "Seed",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Soybeans (cooked)",
+            "type": "Legume",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Tofu",
+            "type": "Legume",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Black Beans",
+            "type": "Legume",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Kidney Beans",
+            "type": "Legume",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Lentils",
+            "type": "Legume",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Chickpeas",
+            "type": "Legume",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Brown Rice",
+            "type": "Grain",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "White Rice",
+            "type": "Grain",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Oats",
+            "type": "Grain",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Quinoa",
+            "type": "Grain",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Wheat Bread (whole wheat)",
+            "type": "Grain Product",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Cornmeal",
+            "type": "Grain Product",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Milk",
+            "type": "Dairy",
+            "oxalate_mg": 2
+        },
+        {
+            "food": "Yogurt",
+            "type": "Dairy",
+            "oxalate_mg": 2
+        },
+        {
+            "food": "Cheese",
+            "type": "Dairy",
+            "oxalate_mg": 2
+        },
+        {
+            "food": "Almond Milk",
+            "type": "Dairy Alternative",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Soy Milk",
+            "type": "Dairy Alternative",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Tea (black, brewed)",
+            "type": "Beverage",
+            "oxalate_mg": 50
+        },
+        {
+            "food": "Cocoa/Chocolate",
+            "type": "Beverage",
+            "oxalate_mg": 50
+        },
+        {
+            "food": "Coffee",
+            "type": "Beverage",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Orange Juice",
+            "type": "Beverage",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Apple Juice",
+            "type": "Beverage",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Chicken",
+            "type": "Meat",
+            "oxalate_mg": 0
+        },
+        {
+            "food": "Beef",
+            "type": "Meat",
+            "oxalate_mg": 0
+        },
+        {
+            "food": "Fish",
+            "type": "Meat",
+            "oxalate_mg": 0
+        },
+        {
+            "food": "Eggs",
+            "type": "Meat",
+            "oxalate_mg": 0
+        },
+        {
+            "food": "Peanut Butter",
+            "type": "Spread",
+            "oxalate_mg": 50
+        },
+        {
+            "food": "Chocolate (dark)",
+            "type": "Sweet",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Honey",
+            "type": "Sweet",
+            "oxalate_mg": 0
+        }
+    ]
+}
