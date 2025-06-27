@@ -428,7 +428,7 @@ elif page == "Educational Resources":
 
     # Insert the actual Figure 1 image
     st.image('figure1_pathogenesis.png',
-             caption='Figure 1: Overview of Pathogenesis', use_column_width=True)
+             caption='Figure 1: Overview of Pathogenesis', use_container_width=True)
     st.markdown("---")
 
     st.subheader("Common Stone Types")
