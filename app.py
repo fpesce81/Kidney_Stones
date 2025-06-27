@@ -582,3 +582,4 @@ elif page == "Oxalate Content Finder":
 st.sidebar.markdown("---")
 st.sidebar.markdown("**About This App:**")
 st.sidebar.info("Developed by a Nephrology Professor and Data Scientist for educational and clinical decision support based on the AJKD Core Curriculum 2023 on Kidney Stone Pathophysiology, Evaluation, and Management. This app is for informational purposes only and does not substitute professional medical advice.")
+ 
