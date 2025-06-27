@@ -160,6 +160,82 @@ def generate_management_plan(stone_type, urine_interpretation, patient_profile, 
 
 st.set_page_config(layout="wide")  # Use wide layout for better data display
 
+# Inject Apple-style custom CSS for a modern, clean look
+st.markdown(
+    """
+    <style>
+    /* Apple-style look: clean, soft, modern */
+    html, body, [class*='css']  {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background: #f5f6fa;
+        color: #222;
+    }
+    .stApp {
+        background: linear-gradient(120deg, #f5f6fa 0%, #e9ecef 100%);
+    }
+    .stButton>button, .stTextInput>div>input, .stNumberInput>div>input, .stSelectbox>div>div, .stRadio>div>div {
+        border-radius: 12px !important;
+        background: #fff !important;
+        border: 1px solid #e0e0e0 !important;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+        transition: box-shadow 0.2s;
+    }
+    .stButton>button:hover {
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+        background: #f0f0f5 !important;
+    }
+    .stSidebar, .css-1d391kg, .css-1lcbmhc {
+        background: #f8f9fb !important;
+        border-right: 1px solid #e0e0e0;
+    }
+    .stHeader, .stSubheader, .stTitle, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+        color: #222;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+    }
+    .stDataFrame, .stTable {
+        background: #fff !important;
+        border-radius: 12px !important;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+    }
+    .stExpanderHeader {
+        font-weight: 500;
+        color: #222;
+    }
+    .stAlert, .stInfo, .stWarning, .stError, .stSuccess {
+        border-radius: 12px !important;
+        font-size: 1.05em;
+    }
+    .stMarkdown a {
+        color: #0071e3 !important;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .stMarkdown a:hover {
+        text-decoration: underline;
+    }
+    .stForm div[role='alert'] {display: none !important;}
+    .stForm .stNumberInput div[role='alert'],
+    .stForm div[role='alert'],
+    .stForm [data-testid="stNumberInput"] div[role='alert'],
+    .stForm [data-testid="stNumberInput"]:has(div[role='alert']),
+    .stForm [data-testid="stNumberInput"]:after {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        max-height: 0 !important;
+    }
+    /* Hide by text content (last resort, not always supported) */
+    .stForm *:contains('Press Enter to submit form') {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("Kidney Stone Navigator: Clinical Decision Support & Patient Education")
 
 # Initialize session state variables if not already present
@@ -181,24 +257,24 @@ if page == "Patient Profile":
     st.header("Patient Profile & History")
     st.write("Enter the patient's general information and medical history.")
 
-    with st.form("patient_profile_form"):
+    with st.form("patient_profile_form", clear_on_submit=True):
         col1, col2, col3 = st.columns(3)
         with col1:
-            age = st.number_input("Age", min_value=0, max_value=120,
-                                  value=st.session_state['patient_profile'].get('age', 45))
+            age = st.selectbox("Age", options=list(range(0, 121)), index=max(
+                0, min(st.session_state['patient_profile'].get('age', 45), 120)))
         with col2:
             gender = st.selectbox("Gender", ["Male", "Female", "Other"], index=[
                                   "Male", "Female", "Other"].index(st.session_state['patient_profile'].get('gender', 'Female')))
         with col3:
-            num_prior_stones = st.number_input(
-                "Number of Prior Stone Episodes", min_value=0, value=st.session_state['patient_profile'].get('num_prior_stones', 1))
+            num_prior_stones = st.selectbox("Number of Prior Stone Episodes", options=list(range(
+                0, 21)), index=max(0, min(st.session_state['patient_profile'].get('num_prior_stones', 1), 20)))
 
-        first_stone_age = st.number_input("Age of First Stone Episode (if known)", min_value=0, max_value=120,
-                                          value=st.session_state['patient_profile'].get('first_stone_age', 28), help="Enter 0 if unknown")
+        first_stone_age = st.selectbox("Age of First Stone Episode (if known)", options=list(range(
+            0, 121)), index=max(0, min(st.session_state['patient_profile'].get('first_stone_age', 28), 120)))
         family_history = st.checkbox("Family history of kidney stones",
                                      value=st.session_state['patient_profile'].get('family_history', False))
-        bmi = st.number_input("BMI (kg/m²)", min_value=10.0, max_value=50.0,
-                              value=st.session_state['patient_profile'].get('bmi', 25.0))
+        bmi = st.selectbox("BMI (kg/m²)", options=[round(x * 0.1, 1) for x in range(100, 501)], index=max(
+            0, min(int(st.session_state['patient_profile'].get('bmi', 25.0) * 10), 5000)))
 
         st.subheader("Associated Medical Conditions")
         # List common conditions based on the manuscript
@@ -236,7 +312,12 @@ if page == "Patient Profile":
                 "medications": medications,
                 "fluid_intake_L": fluid_intake
             }
+            st.success("Saved Profile")
             st.success("Patient profile saved!")
+            st.write("Debug: Patient profile updated in session state:",
+                     st.session_state['patient_profile'])
+        else:
+            st.write("Debug: Form not submitted.")
 
 # --- 24-Hour Urine Analysis Page ---
 elif page == "24-Hour Urine Analysis":
@@ -244,59 +325,59 @@ elif page == "24-Hour Urine Analysis":
     st.write(
         "Enter the results from the patient's 24-hour urine collection and relevant serum labs.")
 
-    with st.form("urine_analysis_form"):
+    with st.form("urine_analysis_form", clear_on_submit=True):
         st.subheader("24-Hour Urine Profile")
         urine_profile_input = {}
         col_urine1, col_urine2, col_urine3 = st.columns(3)
 
         with col_urine1:
-            urine_profile_input["volume_L"] = st.number_input(
-                "Volume (L)", value=st.session_state['urine_profile'].get("volume_L", 2.5), format="%.2f")
-            urine_profile_input["ph"] = st.number_input(
-                "pH", value=st.session_state['urine_profile'].get("ph", 6.0), format="%.1f")
-            urine_profile_input["calcium_mg"] = st.number_input(
-                "Calcium (mg)", value=st.session_state['urine_profile'].get("calcium_mg", 200))
-            urine_profile_input["oxalate_mg"] = st.number_input(
-                "Oxalate (mg)", value=st.session_state['urine_profile'].get("oxalate_mg", 35))
+            urine_profile_input["volume_L"] = st.selectbox("Volume (L)", options=[round(x * 0.1, 1) for x in range(
+                5, 26)], index=max(0, min(round(st.session_state['urine_profile'].get("volume_L", 2.5) * 10) - 5, 20)))
+            urine_profile_input["ph"] = st.selectbox("pH", options=[round(x * 0.1, 1) for x in range(
+                0, 15)], index=max(0, min(round(st.session_state['urine_profile'].get("ph", 6.0) * 10), 14)))
+            urine_profile_input["calcium_mg"] = st.selectbox("Calcium (mg)", options=list(range(
+                0, 1001)), index=max(0, min(st.session_state['urine_profile'].get("calcium_mg", 200), 1000)))
+            urine_profile_input["oxalate_mg"] = st.selectbox("Oxalate (mg)", options=list(range(
+                0, 101)), index=max(0, min(st.session_state['urine_profile'].get("oxalate_mg", 35), 100)))
 
         with col_urine2:
-            urine_profile_input["phosphorus_mg"] = st.number_input(
-                "Phosphorus (mg)", value=st.session_state['urine_profile'].get("phosphorus_mg", 800))
-            urine_profile_input["uric_acid_mg"] = st.number_input(
-                "Uric Acid (mg)", value=st.session_state['urine_profile'].get("uric_acid_mg", 600))
-            urine_profile_input["sodium_mEq"] = st.number_input(
-                "Sodium (mEq)", value=st.session_state['urine_profile'].get("sodium_mEq", 150))
-            urine_profile_input["potassium_mEq"] = st.number_input(
-                "Potassium (mEq)", value=st.session_state['urine_profile'].get("potassium_mEq", 40))
+            urine_profile_input["phosphorus_mg"] = st.selectbox("Phosphorus (mg)", options=list(range(
+                0, 1001)), index=max(0, min(st.session_state['urine_profile'].get("phosphorus_mg", 800), 1000)))
+            urine_profile_input["uric_acid_mg"] = st.selectbox("Uric Acid (mg)", options=list(range(
+                0, 1001)), index=max(0, min(st.session_state['urine_profile'].get("uric_acid_mg", 600), 1000)))
+            urine_profile_input["sodium_mEq"] = st.selectbox("Sodium (mEq)", options=list(range(
+                0, 301)), index=max(0, min(st.session_state['urine_profile'].get("sodium_mEq", 150), 300)))
+            urine_profile_input["potassium_mEq"] = st.selectbox("Potassium (mEq)", options=list(range(
+                0, 301)), index=max(0, min(st.session_state['urine_profile'].get("potassium_mEq", 40), 300)))
 
         with col_urine3:
-            urine_profile_input["magnesium_mg"] = st.number_input(
-                "Magnesium (mg)", value=st.session_state['urine_profile'].get("magnesium_mg", 60))
-            urine_profile_input["sulfate_mmol"] = st.number_input(
-                "Sulfate (mmol)", value=st.session_state['urine_profile'].get("sulfate_mmol", 25))
-            urine_profile_input["ammonium_mmol"] = st.number_input(
-                "Ammonium (mmol)", value=st.session_state['urine_profile'].get("ammonium_mmol", 50))
-            urine_profile_input["citrate_mg"] = st.number_input(
-                "Citrate (mg)", value=st.session_state['urine_profile'].get("citrate_mg", 350))
-            urine_profile_input["cystine_mg"] = st.number_input(
-                "Cystine (mg, optional)", value=st.session_state['urine_profile'].get("cystine_mg", 0))
+            urine_profile_input["magnesium_mg"] = st.selectbox("Magnesium (mg)", options=list(range(
+                0, 101)), index=max(0, min(st.session_state['urine_profile'].get("magnesium_mg", 60), 100)))
+            urine_profile_input["sulfate_mmol"] = st.selectbox("Sulfate (mmol)", options=list(range(
+                0, 101)), index=max(0, min(st.session_state['urine_profile'].get("sulfate_mmol", 25), 100)))
+            urine_profile_input["ammonium_mmol"] = st.selectbox("Ammonium (mmol)", options=list(range(
+                0, 101)), index=max(0, min(st.session_state['urine_profile'].get("ammonium_mmol", 50), 100)))
+            urine_profile_input["citrate_mg"] = st.selectbox("Citrate (mg)", options=list(range(
+                0, 1001)), index=max(0, min(st.session_state['urine_profile'].get("citrate_mg", 350), 1000)))
+            urine_profile_input["cystine_mg"] = st.selectbox("Cystine (mg, optional)", options=list(
+                range(0, 101)), index=max(0, min(st.session_state['urine_profile'].get("cystine_mg", 0), 100)))
 
         st.subheader("Relevant Serum Labs (for context)")
         serum_labs_input = {}
         col_serum1, col_serum2, col_serum3 = st.columns(3)
         with col_serum1:
-            serum_labs_input["calcium_mg_dL"] = st.number_input(
-                "Serum Calcium (mg/dL)", value=st.session_state['serum_labs'].get("calcium_mg_dL", 9.5), format="%.1f")
-            serum_labs_input["intact_pth_pg_mL"] = st.number_input(
-                "Intact PTH (pg/mL)", value=st.session_state['serum_labs'].get("intact_pth_pg_mL", 30))
+            serum_labs_input["calcium_mg_dL"] = st.selectbox("Serum Calcium (mg/dL)", options=list(range(
+                0, 101)), index=max(0, min(int(st.session_state['serum_labs'].get("calcium_mg_dL", 9)), 100)))
+            serum_labs_input["intact_pth_pg_mL"] = st.selectbox("Intact PTH (pg/mL)", options=list(range(
+                0, 301)), index=max(0, min(int(st.session_state['serum_labs'].get("intact_pth_pg_mL", 30)), 300)))
         with col_serum2:
-            serum_labs_input["bicarbonate_mEq_L"] = st.number_input(
-                "Bicarbonate (mEq/L)", value=st.session_state['serum_labs'].get("bicarbonate_mEq_L", 24))
-            serum_labs_input["potassium_mEq_L"] = st.number_input(
-                "Serum Potassium (mEq/L)", value=st.session_state['serum_labs'].get("potassium_mEq_L", 4.0), format="%.1f")
+            serum_labs_input["bicarbonate_mEq_L"] = st.selectbox("Bicarbonate (mEq/L)", options=list(range(
+                0, 101)), index=max(0, min(int(st.session_state['serum_labs'].get("bicarbonate_mEq_L", 24)), 100)))
+            serum_labs_input["potassium_mEq_L"] = st.selectbox("Serum Potassium (mEq/L)", options=list(range(
+                0, 101)), index=max(0, min(int(st.session_state['serum_labs'].get("potassium_mEq_L", 4)), 100)))
         with col_serum3:
-            serum_labs_input["creatinine_mg_dL"] = st.number_input(
-                "Serum Creatinine (mg/dL)", value=st.session_state['serum_labs'].get("creatinine_mg_dL", 0.9), format="%.1f")
+            serum_labs_input["creatinine_mg_dL"] = st.selectbox("Serum Creatinine (mg/dL)", options=list(range(
+                0, 101)), index=max(0, min(int(st.session_state['serum_labs'].get("creatinine_mg_dL", 0)), 100)))
 
         submitted_urine = st.form_submit_button("Analyze Urine")
         if submitted_urine:
@@ -345,30 +426,17 @@ elif page == "Acute Stone Management":
 
         st.subheader("Known Stone Size")
         stone_size = st.radio("Select stone size (if known)", [
-                              "< 5mm", "5-10mm", "> 10mm", "Unknown"], index=3)
+            "< 5mm", "5-10mm", "> 10mm", "Unknown"], index=3)
 
         submitted_acute = st.form_submit_button("Get Acute Guidance")
-        if submitted_acute:
-            # Logic based on Figure 2 (Acute management of nephrolithiasis flowchart)
-            if uncontrolled_pain or vomiting or fevers or hydronephrosis:
-                st.info("Consider Admission.")
-                if fevers or aki or anuria:
-                    st.error("Urgent urology evaluation is required!")
-                else:
-                    if stone_size == "< 5mm":
-                        st.success(
-                            "Acute Management: >60% chance of passing. Supportive treatment, Hydration, Strain urine.")
-                    elif stone_size == "5-10mm":
-                        st.warning(
-                            "Acute Management: ~50% chance of passing. Supportive care, Hydration, Medical expulsive therapy (e.g., alpha-blockers for distal stones), Strain urine.")
-                    elif stone_size == "> 10mm":
-                        st.error(
-                            "Acute Management: <25% chance of passing. Urology evaluation, Strain urine.")
-                    else:
-                        st.info(
-                            "Acute Management: Supportive care, Hydration, Strain urine. Consider imaging for size if not done.")
+
+    # Output logic is now only evaluated on this page
+    if submitted_acute:
+        if uncontrolled_pain or vomiting or fevers or hydronephrosis:
+            st.info("Consider Admission.")
+            if fevers or aki or anuria:
+                st.error("Urgent urology evaluation is required!")
             else:
-                st.success("Can likely manage as outpatient.")
                 if stone_size == "< 5mm":
                     st.success(
                         "Acute Management: >60% chance of passing. Supportive treatment, Hydration, Strain urine.")
@@ -381,6 +449,21 @@ elif page == "Acute Stone Management":
                 else:
                     st.info(
                         "Acute Management: Supportive care, Hydration, Strain urine. Consider imaging for size if not done.")
+        else:
+            st.success("Can likely manage as outpatient.")
+            if stone_size == "< 5mm":
+                st.success(
+                    "Acute Management: >60% chance of passing. Supportive treatment, Hydration, Strain urine.")
+            elif stone_size == "5-10mm":
+                st.warning(
+                    "Acute Management: ~50% chance of passing. Supportive care, Hydration, Medical expulsive therapy (e.g., alpha-blockers for distal stones), Strain urine.")
+            elif stone_size == "> 10mm":
+                st.error(
+                    "Acute Management: <25% chance of passing. Urology evaluation, Strain urine.")
+            else:
+                st.info(
+                    "Acute Management: Supportive care, Hydration, Strain urine. Consider imaging for size if not done.")
+        st.info("Please select symptoms to get guidance.")
 
 # --- Chronic Management Plan Page ---
 elif page == "Chronic Management Plan":
