@@ -424,7 +424,7 @@ elif page == "Educational Resources":
 
     st.subheader("Overview of Kidney Stone Pathogenesis")
     st.write(
-        "Kidney stone disease, also known as nephrolithiasis or urolithiasis, is a disorder in which urinary solutes precipitate to form aggregates of crystalline material in the urinary space. The formation is a complex biologic process involving a balance of crystallization inhibitors and promoters, urine volume, and urine pH. [cite: 7, 305-306, 390-392]")
+        "Kidney stone disease, also known as nephrolithiasis or urolithiasis, is a disorder in which urinary solutes precipitate to form aggregates of crystalline material in the urinary space. The formation is a complex biologic process involving a balance of crystallization inhibitors and promoters, urine volume, and urine pH.")
 
     # Insert the actual Figure 1 image
     st.image('figure1_pathogenesis.png',
@@ -437,102 +437,92 @@ elif page == "Educational Resources":
 
     with st.expander("Calcium Oxalate Stones"):
         st.write(
-            "The majority of kidney stones are composed of calcium oxalate. Predisposing factors include low urine volume, hypercalciuria, hypocitraturia, and hyperoxaluria. [cite: 227-258]")
-        st.markdown(
-            "![Calcium Oxalate Crystals](https://placehold.co/400x200/52BE80/FFFFFF?text=CALCIUM+OXALATE+CRYSTALS)")
+            "The majority of kidney stones are composed of calcium oxalate. Predisposing factors include low urine volume, hypercalciuria, hypocitraturia, and hyperoxaluria.")
         st.write("**Chronic Management Principles:**")
         st.markdown(
-            "- **Increase urine volume** (target $\\sim2.5~L/d$) [cite: 265, 377].")
-        st.markdown("- **Restrict sodium** ($<2,300~mg/d$) [cite: 265, 378].")
+            "- **Increase urine volume** (target $\\sim2.5~L/d$).")
+        st.markdown("- **Restrict sodium** ($<2,300~mg/d$).")
         st.markdown(
-            "- **Optimize calcium intake** ($1,000-1,200~mg/d$) [cite: 265, 422].")
+            "- **Optimize calcium intake** ($1,000-1,200~mg/d$).")
         st.markdown(
-            "- Administer **thiazide** if hypercalciuric. [cite: 265, 379-382]")
+            "- Administer **thiazide** if hypercalciuric.")
         st.markdown(
-            "- Administer **potassium citrate** if hypocitraturic. [cite: 265, 459]")
+            "- Administer **potassium citrate** if hypocitraturic.")
         st.markdown(
-            "- **Oxalate restriction** for significant hyperoxaluria [cite: 265, 497].")
+            "- **Oxalate restriction** for significant hyperoxaluria.")
         st.markdown(
-            "- **Restrict animal protein** and sucrose/fructose. [cite: 265, 385-387, 499]")
+            "- **Restrict animal protein** and sucrose/fructose.")
 
     with st.expander("Calcium Phosphate Stones"):
         st.write(
-            "Calcium phosphate stones are less soluble at a higher pH. A major pathophysiologic factor leading to calcium phosphate stone formation is higher urine pH (typically $\\ge6.2$), often with hypocitraturia. [cite: 305-306, 566]")
-        st.markdown(
-            "![Calcium Phosphate Crystals](https://placehold.co/400x200/AF7AC5/FFFFFF?text=CALCIUM+PHOSPHATE+CRYSTALS)")
+            "Calcium phosphate stones are less soluble at a higher pH. A major pathophysiologic factor leading to calcium phosphate stone formation is higher urine pH (typically $\\ge6.2$), often with hypocitraturia.")
         st.write("**Chronic Management Principles:**")
         st.markdown(
-            "- **Address reversible factors** (e.g., discontinuation of offending medications like topiramate/acetazolamide). [cite: 332-333, 570-571]")
+            "- **Address reversible factors** (e.g., discontinuation of offending medications like topiramate/acetazolamide).")
         st.markdown(
-            "- **Increase urine volume** and **restrict sodium**. [cite: 334-335, 571]")
+            "- **Increase urine volume** and **restrict sodium**.")
         st.markdown(
-            "- Administer **thiazide** if hypercalciuric. [cite: 336, 571]")
+            "- Administer **thiazide** if hypercalciuric.")
         st.markdown(
-            "- Treat metabolic acidosis with **potassium citrate** while avoiding excessive urinary alkalinization. [cite: 337, 572-573]")
+            "- Treat metabolic acidosis with **potassium citrate** while avoiding excessive urinary alkalinization.")
         st.markdown(
-            "- Consider **potassium chloride** if concomitant potassium deficiency. [cite: 575]")
+            "- Consider **potassium chloride** if concomitant potassium deficiency.")
 
     with st.expander("Uric Acid Stones"):
         st.write(
-            "Uric acid stones are the most common radiolucent stone. Low urine pH (<5.5), low urine volume, and hyperuricosuria are key factors in their pathogenesis. [cite: 349-360]")
-        st.markdown(
-            "![Uric Acid Crystals](https://placehold.co/400x200/F1C40F/000000?text=URIC+ACID+CRYSTALS)")
+            "Uric acid stones are the most common radiolucent stone. Low urine pH (<5.5), low urine volume, and hyperuricosuria are key factors in their pathogenesis.")
         st.write("**Chronic Management Principles:**")
         st.markdown(
-            "- **Raise urine pH** to $6.5-7.0$ using alkali therapy (potassium citrate or sodium bicarbonate). [cite: 364, 631, 633]")
-        st.markdown("- **Increase urine volume**. [cite: 361, 631]")
+            "- **Raise urine pH** to $6.5-7.0$ using alkali therapy (potassium citrate or sodium bicarbonate).")
+        st.markdown("- **Increase urine volume**.")
         st.markdown(
-            "- Advise **lower animal protein intake**. [cite: 362, 632]")
+            "- Advise **lower animal protein intake**.")
         st.markdown(
-            "- Consider **allopurinol** if hyperuricosuric and stones persist despite pH normalization. [cite: 363, 635]")
+            "- Consider **allopurinol** if hyperuricosuric and stones persist despite pH normalization.")
 
     with st.expander("Struvite Stones (Magnesium Ammonium Phosphate)"):
         st.write(
-            "Struvite stones comprise about 1% of all stones and result from chronic urinary tract infection by urease-producing organisms such as Proteus. These can rapidly grow to fill the renal pelvis (staghorn calculi). [cite: 663-668]")
-        st.markdown(
-            "![Struvite Crystals](https://placehold.co/400x200/28B463/FFFFFF?text=STRUVITE+CRYSTALS)")
+            "Struvite stones comprise about 1% of all stones and result from chronic urinary tract infection by urease-producing organisms such as Proteus. These can rapidly grow to fill the renal pelvis (staghorn calculi).")
         st.write("**Chronic Management Principles:**")
         st.markdown(
-            "- **Eradication of infection** with antibiotics and **early surgical removal** of bacteria-laden stones. [cite: 669, 674]")
-        st.markdown("- **Increase urine volume**. [cite: 393]")
+            "- **Eradication of infection** with antibiotics and **early surgical removal** of bacteria-laden stones.")
+        st.markdown("- **Increase urine volume**.")
         st.markdown(
-            "- Urease inhibitors (e.g., acetohydroxamic acid) may be considered but have significant side effects. [cite: 395, 671-673]")
+            "- Urease inhibitors (e.g., acetohydroxamic acid) may be considered but have significant side effects.")
 
     with st.expander("Cystine Stones"):
         st.write(
-            "Cystinuria is a rare genetic disorder causing kidney stones, accounting for about 1% to 2% of kidney stones in adults and 6% to 8% in children. Cystine is poorly soluble in urine at typical pH. [cite: 390-392]")
-        st.markdown(
-            "![Cystine Crystals](https://placehold.co/400x200/E74C3C/FFFFFF?text=CYSTINE+CRYSTALS)")
+            "Cystinuria is a rare genetic disorder causing kidney stones, accounting for about 1% to 2% of kidney stones in adults and 6% to 8% in children. Cystine is poorly soluble in urine at typical pH.")
         st.write("**Chronic Management Principles:**")
         st.markdown(
-            "- **Increase urine volume** to achieve urine cystine $<250~mg/L$. [cite: 399, 697]")
-        st.markdown("- **Restrict dietary sodium**. [cite: 400, 697]")
+            "- **Increase urine volume** to achieve urine cystine $<250~mg/L$.")
+        st.markdown("- **Restrict dietary sodium**.")
         st.markdown(
-            "- **Reduce methionine and cystine intake** through dietary restriction of animal protein. [cite: 401]")
+            "- **Reduce methionine and cystine intake** through dietary restriction of animal protein.")
         st.markdown(
-            "- Apply **alkali therapy** (potassium citrate or sodium bicarbonate) to maintain urine pH between $7.0$ and $7.5$ to enhance cystine solubility. [cite: 402, 698-699]")
+            "- Apply **alkali therapy** (potassium citrate or sodium bicarbonate) to maintain urine pH between $7.0$ and $7.5$ to enhance cystine solubility.")
         st.markdown(
-            "- If stones persist, consider **thiol drugs** (tiopronin, penicillamine, captopril), acknowledging their cost and side effects. [cite: 403-404, 701-703]")
+            "- If stones persist, consider **thiol drugs** (tiopronin, penicillamine, captopril), acknowledging their cost and side effects.")
 
     st.subheader("Associated Systemic Conditions")
     st.write(
-        "Kidney stones are frequently manifestations of underlying systemic medical conditions such as the metabolic syndrome, genetic disorders, or endocrinopathies. They are associated with increased risk of chronic kidney disease (CKD), cardiovascular disease, and reduced bone mineral density. [cite: 60-67]")
+        "Kidney stones are frequently manifestations of underlying systemic medical conditions such as the metabolic syndrome, genetic disorders, or endocrinopathies. They are associated with increased risk of chronic kidney disease (CKD), cardiovascular disease, and reduced bone mineral density.")
     st.markdown(
-        "- **Metabolic Syndrome/Type 2 Diabetes:** Linked to uric acid and calcium oxalate stones due to acidic urine and other metabolic derangements. [cite: 104-106, 351, 621]")
+        "- **Metabolic Syndrome/Type 2 Diabetes:** Linked to uric acid and calcium oxalate stones due to acidic urine and other metabolic derangements.")
     st.markdown(
-        "- **Osteoporosis/Bone Health:** The skeleton can be a source of excessive urinary calcium. [cite: 137-138, 388]")
+        "- **Osteoporosis/Bone Health:** The skeleton can be a source of excessive urinary calcium.")
     st.markdown(
-        "- **Malabsorption Syndromes (e.g., Crohn's, Gastric Bypass, Celiac, Cystic Fibrosis):** Predispose to calcium oxalate stones (enteric hyperoxaluria). [cite: 204-205, 495]")
+        "- **Malabsorption Syndromes (e.g., Crohn's, Gastric Bypass, Celiac, Cystic Fibrosis):** Predispose to calcium oxalate stones (enteric hyperoxaluria).")
     st.markdown(
-        "- **Renal Tubular Acidosis (RTA) & Sjögren's Syndrome:** Can lead to calcium phosphate stones due to high urine pH. [cite: 206, 323-324, 566]")
+        "- **Renal Tubular Acidosis (RTA) & Sjögren's Syndrome:** Can lead to calcium phosphate stones due to high urine pH.")
     st.markdown(
-        "- **Gout:** Almost doubles the risk of nephrolithiasis, often linked to metabolic syndrome. [cite: 356-358, 622]")
+        "- **Gout:** Almost doubles the risk of nephrolithiasis, often linked to metabolic syndrome.")
     st.markdown(
-        "- **Primary Hyperparathyroidism:** Causes hypercalcemia and hypercalciuria, leading to calcium stones. [cite: 205, 424-425]")
+        "- **Primary Hyperparathyroidism:** Causes hypercalcemia and hypercalciuria, leading to calcium stones.")
 
     st.subheader("External Resources")
-    st.markdown("[University of Chicago Kidney Stone Center: How to Eat a Low Oxalate Diet](https://kidneystones.uchicago.edu/how-to-eat-a-low-oxalate-diet/) [cite: 213, 496]")
-    st.markdown("[Recurrence of Kidney Stone (ROKS) nomogram](https://www.qxmd.com/calculate/calculator_438/roks-recurrer-of-kidney-stone-2018) [cite: 102]")
+    st.markdown("[Recurrence of Kidney Stone (ROKS) nomogram](https://www.qxmd.com/calculate/calculator_438/roks-recurrer-of-kidney-stone-2018)")
+    st.markdown("[Kidney Stone Pathophysiology, Evaluation and Management: Core Curriculum 2023](https://www.ajkd.org/article/S0272-6386(23)00670-4/fulltext)")
 
 # --- Oxalate Content Finder Page ---
 elif page == "Oxalate Content Finder":
@@ -571,6 +561,9 @@ elif page == "Oxalate Content Finder":
                 "Enter a food item or category to search for its oxalate content.")
             st.write("Full Oxalate Database:")
             st.dataframe(oxalate_df)
+
+    st.subheader("External Resources")
+    st.markdown("[University of Chicago Kidney Stone Center: How to Eat a Low Oxalate Diet](https://kidneystones.uchicago.edu/how-to-eat-a-low-oxalate-diet/)")
 
 
 # About / Disclaimer in Sidebar
