@@ -1,0 +1,500 @@
+{
+    "title": "Ricerca Contenuto di Ossalati",
+    "search_heading": "Cerca Alimento",
+    "search_label": "Inserisci il Nome dell'Alimento o Categoria:",
+    "search_placeholder": "es. Spinaci, Frutta",
+    "search_button": "Cerca",
+    "results_heading": "Risultati della Ricerca",
+    "results_prompt": "Inserisci un alimento qui sopra per vederne il contenuto di ossalati.",
+    "results_for": "Risultati della Ricerca per",
+    "no_results": "Nessun risultato trovato per",
+    "please_enter_food": "Per favore, inserisci un alimento da cercare.",
+    "understanding_heading": "Comprendere i Livelli di Ossalati",
+    "understanding_intro": "Il contenuto di ossalati è classificato come segue:",
+    "very_high": "Molto Alto",
+    "high": "Alto",
+    "moderate": "Moderato",
+    "low": "Basso",
+    "very_low": "Molto Basso",
+    "disclaimer": "Dichiarazione di non responsabilità: queste informazioni sono solo a scopo educativo e non devono sostituire la consulenza medica professionale.",
+    "sort_default": "Predefinito",
+    "sort_asc": "Ordina: dal più basso al più alto",
+    "sort_desc": "Ordina: dal più alto al più basso",
+    "food_data": [
+        {
+            "food": "Spinaci",
+            "type": "Verdura",
+            "oxalate_mg": 656
+        },
+        {
+            "food": "Rabarbaro",
+            "type": "Verdura",
+            "oxalate_mg": 541
+        },
+        {
+            "food": "Foglie di barbabietola",
+            "type": "Verdura",
+            "oxalate_mg": 300
+        },
+        {
+            "food": "Barbabietole",
+            "type": "Verdura",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Bietola",
+            "type": "Verdura",
+            "oxalate_mg": 300
+        },
+        {
+            "food": "Cavolo riccio",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Broccoli",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Carote",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Sedano",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Cetriolo",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Lattuga (Iceberg)",
+            "type": "Verdura",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Fagiolini",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Patate (al forno, con la buccia)",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Patate dolci",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Pomodori",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Peperoni",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Zucchine",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Asparagi",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Cavolo",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Cavolfiore",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Cipolle",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Aglio",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Funghi",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Mais",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Piselli",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Carciofo",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Cavoletti di Bruxelles",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Cavolo nero",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Dente di leone",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Indivia",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Kohlrabi",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Porri",
+            "type": "Verdura",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Senape indiana",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Okra",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Prezzemolo",
+            "type": "Erba aromatica",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Crescione",
+            "type": "Verdura",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Frutti di bosco (misti)",
+            "type": "Frutta",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "More",
+            "type": "Frutta",
+            "oxalate_mg": 20
+        },
+        {
+            "food": "Lamponi",
+            "type": "Frutta",
+            "oxalate_mg": 48
+        },
+        {
+            "food": "Fragole",
+            "type": "Frutta",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Mirtilli",
+            "type": "Frutta",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Kiwi",
+            "type": "Frutta",
+            "oxalate_mg": 20
+        },
+        {
+            "food": "Arance",
+            "type": "Frutta",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Mele",
+            "type": "Frutta",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Banane",
+            "type": "Frutta",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Uva",
+            "type": "Frutta",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Meloni (Cantalupo, Anguria)",
+            "type": "Frutta",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Pesche",
+            "type": "Frutta",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Pere",
+            "type": "Frutta",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Ananas",
+            "type": "Frutta",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Prugne",
+            "type": "Frutta",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Ciliegie",
+            "type": "Frutta",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Limone/Lime (succo)",
+            "type": "Frutta",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Avocado",
+            "type": "Frutta",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Fichi",
+            "type": "Frutta",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Datteri",
+            "type": "Frutta",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Mandorle",
+            "type": "Frutta a guscio",
+            "oxalate_mg": 122
+        },
+        {
+            "food": "Anacardi",
+            "type": "Frutta a guscio",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Arachidi",
+            "type": "Frutta a guscio",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Noci pecan",
+            "type": "Frutta a guscio",
+            "oxalate_mg": 40
+        },
+        {
+            "food": "Noci",
+            "type": "Frutta a guscio",
+            "oxalate_mg": 20
+        },
+        {
+            "food": "Semi di sesamo",
+            "type": "Seme",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Semi di girasole",
+            "type": "Seme",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Semi di zucca",
+            "type": "Seme",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Semi di chia",
+            "type": "Seme",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Semi di lino",
+            "type": "Seme",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Soia (cotta)",
+            "type": "Legume",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Tofu",
+            "type": "Legume",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Fagioli neri",
+            "type": "Legume",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Fagioli rossi",
+            "type": "Legume",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Lenticchie",
+            "type": "Legume",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Ceci",
+            "type": "Legume",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Riso integrale",
+            "type": "Grano",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Riso bianco",
+            "type": "Grano",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Avena",
+            "type": "Grano",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Quinoa",
+            "type": "Grano",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Pane di frumento (integrale)",
+            "type": "Prodotto a base di grano",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Farina di mais",
+            "type": "Prodotto a base di grano",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Latte",
+            "type": "Latticino",
+            "oxalate_mg": 2
+        },
+        {
+            "food": "Yogurt",
+            "type": "Latticino",
+            "oxalate_mg": 2
+        },
+        {
+            "food": "Formaggio",
+            "type": "Latticino",
+            "oxalate_mg": 2
+        },
+        {
+            "food": "Latte di mandorla",
+            "type": "Alternativa al latte",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Latte di soia",
+            "type": "Alternativa al latte",
+            "oxalate_mg": 10
+        },
+        {
+            "food": "Tè (nero, infuso)",
+            "type": "Bevanda",
+            "oxalate_mg": 50
+        },
+        {
+            "food": "Cacao/Cioccolato",
+            "type": "Bevanda",
+            "oxalate_mg": 50
+        },
+        {
+            "food": "Caffè",
+            "type": "Bevanda",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Succo d'arancia",
+            "type": "Bevanda",
+            "oxalate_mg": 5
+        },
+        {
+            "food": "Succo di mela",
+            "type": "Bevanda",
+            "oxalate_mg": 3
+        },
+        {
+            "food": "Pollo",
+            "type": "Carne",
+            "oxalate_mg": 0
+        },
+        {
+            "food": "Manzo",
+            "type": "Carne",
+            "oxalate_mg": 0
+        },
+        {
+            "food": "Pesce",
+            "type": "Carne",
+            "oxalate_mg": 0
+        },
+        {
+            "food": "Uova",
+            "type": "Carne",
+            "oxalate_mg": 0
+        },
+        {
+            "food": "Burro di arachidi",
+            "type": "Crema spalmabile",
+            "oxalate_mg": 50
+        },
+        {
+            "food": "Cioccolato (fondente)",
+            "type": "Dolce",
+            "oxalate_mg": 100
+        },
+        {
+            "food": "Miele",
+            "type": "Dolce",
+            "oxalate_mg": 0
+        }
+    ]
+}
