@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}24-Hour Urine Analysis - Kidney Stone Navigator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2 class="mb-0"><i class="bi bi-droplet me-2"></i>24-Hour Urine Analysis</h2>
+                </div>
+                <div class="card-body">
+                    <p class="lead mb-4">Enter the results from the patient's 24-hour urine collection and relevant serum labs for interpretation.</p>
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5 class="text-primary mb-3">Urine Profile</h5>
+                                {{ urine_form|crispy }}
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary mb-3">Serum Labs</h5>
+                                {{ serum_form|crispy }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-search me-2"></i>Analyze Urine
+                                </button>
+                                <a href="{% url 'kidney_stones_app:patient_profile' %}" class="btn btn-outline-secondary btn-lg ms-2">
+                                    <i class="bi bi-arrow-left me-2"></i>Back to Profile
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% if show_results and interpretation %}
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0"><i class="bi bi-clipboard-check me-2"></i>Urine Analysis Interpretation</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            {% for param, finding in interpretation.items %}
+                                <div class="interpretation-item mb-2">
+                                    <strong>{{ param|title|cut:'_'|title }}:</strong> {{ finding }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if show_results and urine_data %}
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="bi bi-bar-chart-line me-2"></i>Urine Volume: Current vs. Goal</h5>
+                </div>
+                <div class="card-body">
+                    <div class="progress mb-3" style="height: 2rem;">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: {% widthratio urine_data.volume_L 2.5 100 %}%" aria-valuenow="{{ urine_data.volume_L }}" aria-valuemin="0" aria-valuemax="2.5">
+                            Current: {{ urine_data.volume_L }} L
+                        </div>
+                    </div>
+                    <p class="mb-0">Goal: <strong>2.5 L/day</strong> urine volume for reduced recurrence risk.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+{% endblock %} 

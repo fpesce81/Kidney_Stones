@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Patient Profile - Kidney Stone Navigator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="mb-0"><i class="bi bi-person-circle me-2"></i>Patient Profile & History</h2>
+                </div>
+                <div class="card-body">
+                    <p class="lead mb-4">Enter the patient's general information and medical history to create a comprehensive profile for personalized care.</p>
+                    
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        
+                        <!-- Basic Information -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h4 class="text-primary mb-3"><i class="bi bi-info-circle me-2"></i>Basic Information</h4>
+                            </div>
+                            <div class="col-md-4">
+                                {{ form.age|as_crispy_field }}
+                            </div>
+                            <div class="col-md-4">
+                                {{ form.gender|as_crispy_field }}
+                            </div>
+                            <div class="col-md-4">
+                                {{ form.bmi|as_crispy_field }}
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                {{ form.num_prior_stones|as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.first_stone_age|as_crispy_field }}
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                {{ form.family_history|as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.fluid_intake_L|as_crispy_field }}
+                            </div>
+                        </div>
+                        
+                        <!-- Medical Conditions -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h4 class="text-primary mb-3"><i class="bi bi-heart-pulse me-2"></i>Associated Medical Conditions</h4>
+                                <p class="text-muted">Select all applicable conditions that may influence kidney stone formation and management.</p>
+                                {{ form.medical_conditions|as_crispy_field }}
+                            </div>
+                        </div>
+                        
+                        <!-- Medications -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h4 class="text-primary mb-3"><i class="bi bi-capsule me-2"></i>Current Medications</h4>
+                                <p class="text-muted">List current medications that may affect stone formation or management.</p>
+                                {{ form.medications|as_crispy_field }}
+                            </div>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-check-circle me-2"></i>Save Patient Profile
+                                </button>
+                                <a href="{% url 'kidney_stones_app:home' %}" class="btn btn-outline-secondary btn-lg ms-2">
+                                    <i class="bi bi-arrow-left me-2"></i>Back to Home
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Information Card -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-lightbulb me-2"></i>Why This Information Matters</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="bi bi-1-circle text-primary me-2"></i>Stone History</h6>
+                            <p class="small">Previous stone episodes help predict recurrence risk and guide preventive strategies.</p>
+                            
+                            <h6><i class="bi bi-2-circle text-primary me-2"></i>Medical Conditions</h6>
+                            <p class="small">Conditions like diabetes, obesity, and malabsorption syndromes significantly impact stone formation.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="bi bi-3-circle text-primary me-2"></i>Medications</h6>
+                            <p class="small">Certain medications can increase stone risk or affect urine composition and pH.</p>
+                            
+                            <h6><i class="bi bi-4-circle text-primary me-2"></i>Family History</h6>
+                            <p class="small">Genetic factors play a role in stone formation and help identify high-risk patients.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+{% endblock %} 

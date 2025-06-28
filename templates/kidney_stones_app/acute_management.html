@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Acute Stone Management - Kidney Stone Navigator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Acute Stone Management</h2>
+                </div>
+                <div class="card-body">
+                    <p class="lead mb-4">Select the patient's symptoms and known stone size to receive acute management guidance.</p>
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5 class="text-primary mb-3">Current Symptoms</h5>
+                                {{ form.uncontrolled_pain|as_crispy_field }}
+                                {{ form.vomiting|as_crispy_field }}
+                                {{ form.fevers|as_crispy_field }}
+                                {{ form.hydronephrosis|as_crispy_field }}
+                                {{ form.aki|as_crispy_field }}
+                                {{ form.anuria|as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary mb-3">Known Stone Size</h5>
+                                {{ form.stone_size|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-danger btn-lg">
+                                    <i class="bi bi-lightning me-2"></i>Get Acute Guidance
+                                </button>
+                                <a href="{% url 'kidney_stones_app:home' %}" class="btn btn-outline-secondary btn-lg ms-2">
+                                    <i class="bi bi-arrow-left me-2"></i>Back to Home
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% if show_results and guidance %}
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0"><i class="bi bi-clipboard-check me-2"></i>Acute Management Guidance</h4>
+                </div>
+                <div class="card-body">
+                    {% if guidance.admission_needed %}
+                        <div class="alert alert-danger mb-3">
+                            <i class="bi bi-hospital me-2"></i><strong>Admission may be required.</strong>
+                        </div>
+                    {% endif %}
+                    {% if guidance.urgency_level == 'urgent' %}
+                        <div class="alert alert-danger mb-3">
+                            <i class="bi bi-exclamation-triangle me-2"></i><strong>Urgent urology evaluation is required!</strong>
+                        </div>
+                    {% elif guidance.urgency_level == 'moderate' %}
+                        <div class="alert alert-warning mb-3">
+                            <i class="bi bi-exclamation-circle me-2"></i>Moderate urgency.
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success mb-3">
+                            <i class="bi bi-check-circle me-2"></i>Outpatient management likely appropriate.
+                        </div>
+                    {% endif %}
+                    <ul class="list-group">
+                        {% for rec in guidance.recommendations %}
+                        <li class="list-group-item recommendation-item">{{ rec }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+{% endblock %} 

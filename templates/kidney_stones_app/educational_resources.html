@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Educational Resources - Kidney Stone Navigator{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2 class="mb-0"><i class="bi bi-book me-2"></i>Educational Resources</h2>
+                </div>
+                <div class="card-body">
+                    <h4 class="mb-3">Overview of Kidney Stone Pathogenesis</h4>
+                    <p>Kidney stone disease, also known as nephrolithiasis or urolithiasis, is a disorder in which urinary solutes precipitate to form aggregates of crystalline material in the urinary space. The formation is a complex biologic process involving a balance of crystallization inhibitors and promoters, urine volume, and urine pH.</p>
+                    <img src="{% static 'images/figure1_pathogenesis.png' %}" class="img-fluid rounded mb-4" alt="Pathogenesis Figure"/>
+                    <hr/>
+                    <h4 class="mb-3">Common Stone Types</h4>
+                    <div class="accordion mb-4" id="stoneTypesAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOxalate">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOxalate" aria-expanded="true" aria-controls="collapseOxalate">
+                                    Calcium Oxalate Stones
+                                </button>
+                            </h2>
+                            <div id="collapseOxalate" class="accordion-collapse collapse show" aria-labelledby="headingOxalate" data-bs-parent="#stoneTypesAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Most common type. Predisposing factors: low urine volume, hypercalciuria, hypocitraturia, hyperoxaluria.</li>
+                                        <li><strong>Chronic Management:</strong> Increase urine volume (~2.5 L/d), restrict sodium, optimize calcium intake, thiazide if hypercalciuric, potassium citrate if hypocitraturic, oxalate restriction for significant hyperoxaluria, restrict animal protein and sucrose/fructose.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingPhosphate">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePhosphate" aria-expanded="false" aria-controls="collapsePhosphate">
+                                    Calcium Phosphate Stones
+                                </button>
+                            </h2>
+                            <div id="collapsePhosphate" class="accordion-collapse collapse" aria-labelledby="headingPhosphate" data-bs-parent="#stoneTypesAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Less soluble at higher pH. Often with hypocitraturia.</li>
+                                        <li><strong>Chronic Management:</strong> Address reversible factors (e.g., discontinue topiramate/acetazolamide), increase urine volume, restrict sodium, thiazide if hypercalciuric, treat acidosis with potassium citrate, consider potassium chloride if potassium deficiency.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingUric">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUric" aria-expanded="false" aria-controls="collapseUric">
+                                    Uric Acid Stones
+                                </button>
+                            </h2>
+                            <div id="collapseUric" class="accordion-collapse collapse" aria-labelledby="headingUric" data-bs-parent="#stoneTypesAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Radiolucent. Low urine pH, low volume, hyperuricosuria are key factors.</li>
+                                        <li><strong>Chronic Management:</strong> Raise urine pH to 6.5-7.0 with alkali therapy, increase urine volume, lower animal protein intake, consider allopurinol if hyperuricosuric and stones persist.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingStruvite">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStruvite" aria-expanded="false" aria-controls="collapseStruvite">
+                                    Struvite Stones
+                                </button>
+                            </h2>
+                            <div id="collapseStruvite" class="accordion-collapse collapse" aria-labelledby="headingStruvite" data-bs-parent="#stoneTypesAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Result from chronic UTI by urease-producing organisms. Can form staghorn calculi.</li>
+                                        <li><strong>Chronic Management:</strong> Eradicate infection, early surgical removal, increase urine volume, consider urease inhibitors.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingCystine">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCystine" aria-expanded="false" aria-controls="collapseCystine">
+                                    Cystine Stones
+                                </button>
+                            </h2>
+                            <div id="collapseCystine" class="accordion-collapse collapse" aria-labelledby="headingCystine" data-bs-parent="#stoneTypesAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Rare genetic disorder. Cystine is poorly soluble at typical urine pH.</li>
+                                        <li><strong>Chronic Management:</strong> Increase urine volume, restrict sodium, reduce animal protein, alkali therapy to maintain pH 7.0-7.5, consider thiol drugs if stones persist.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <h4 class="mb-3">Associated Systemic Conditions</h4>
+                    <ul>
+                        <li><strong>Metabolic Syndrome/Type 2 Diabetes:</strong> Linked to uric acid and calcium oxalate stones due to acidic urine and other metabolic derangements.</li>
+                        <li><strong>Osteoporosis/Bone Health:</strong> Skeleton can be a source of excessive urinary calcium.</li>
+                        <li><strong>Malabsorption Syndromes:</strong> (e.g., Crohn's, Gastric Bypass, Celiac, Cystic Fibrosis) predispose to calcium oxalate stones (enteric hyperoxaluria).</li>
+                        <li><strong>Renal Tubular Acidosis & Sjögren's Syndrome:</strong> Can lead to calcium phosphate stones due to high urine pH.</li>
+                        <li><strong>Gout:</strong> Doubles risk of nephrolithiasis, often linked to metabolic syndrome.</li>
+                        <li><strong>Primary Hyperparathyroidism:</strong> Causes hypercalcemia and hypercalciuria, leading to calcium stones.</li>
+                    </ul>
+                    <hr/>
+                    <h4 class="mb-3">External Resources</h4>
+                    <ul>
+                        <li><a href="https://www.qxmd.com/calculate/calculator_438/roks-recurrer-of-kidney-stone-2018" target="_blank">Recurrence of Kidney Stone (ROKS) nomogram</a></li>
+                        <li><a href="https://www.ajkd.org/article/S0272-6386(23)00670-4/fulltext" target="_blank">Kidney Stone Pathophysiology, Evaluation and Management: Core Curriculum 2023</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

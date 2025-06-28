@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/admin/Documents/CURSOR/Kidney_Stones/logs/.48e15f5f0644f3fd3abe399f398e180f6334e63b-audit.json",
+    "files": [
+        {
+            "date": 1751087333354,
+            "name": "/Users/admin/Documents/CURSOR/Kidney_Stones/logs/mcp-puppeteer-2025-06-28.log",
+            "hash": "264217f5ae855c63c8556577cfb7112fd521ee20365835213c4b896adf3a7ff9"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Kidney Stone Navigator{% endblock %}</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{% url 'kidney_stones_app:home' %}">
+                <i class="bi bi-heart-pulse me-2"></i>
+                Kidney Stone Navigator
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if active_page == 'patient_profile' %}active{% endif %}" 
+                           href="{% url 'kidney_stones_app:patient_profile' %}">
+                            <i class="bi bi-person-circle me-1"></i>Patient Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if active_page == 'urine_analysis' %}active{% endif %}" 
+                           href="{% url 'kidney_stones_app:urine_analysis' %}">
+                            <i class="bi bi-droplet me-1"></i>Urine Analysis
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if active_page == 'acute_management' %}active{% endif %}" 
+                           href="{% url 'kidney_stones_app:acute_management' %}">
+                            <i class="bi bi-exclamation-triangle me-1"></i>Acute Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if active_page == 'chronic_management' %}active{% endif %}" 
+                           href="{% url 'kidney_stones_app:chronic_management' %}">
+                            <i class="bi bi-calendar-check me-1"></i>Chronic Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if active_page == 'educational_resources' %}active{% endif %}" 
+                           href="{% url 'kidney_stones_app:educational_resources' %}">
+                            <i class="bi bi-book me-1"></i>Educational Resources
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if active_page == 'oxalate_finder' %}active{% endif %}" 
+                           href="{% url 'kidney_stones_app:oxalate_finder' %}">
+                            <i class="bi bi-search me-1"></i>Oxalate Finder
+                        </a>
+                    </li>
+                </ul>
+                
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'kidney_stones_app:patient_history' %}">
+                            <i class="bi bi-clock-history me-1"></i>History
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container-fluid py-4">
+        <!-- Messages -->
+        {% if messages %}
+            <div class="row">
+                <div class="col-12">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light border-top mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="text-muted">Kidney Stone Navigator</h6>
+                    <p class="text-muted small">
+                        Clinical Decision Support & Patient Education Tool
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted small">
+                        Based on evidence-based guidelines and clinical research
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html> 

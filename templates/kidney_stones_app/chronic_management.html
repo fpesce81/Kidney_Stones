@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Chronic Management Plan - Kidney Stone Navigator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2 class="mb-0"><i class="bi bi-calendar-check me-2"></i>Chronic Management Plan</h2>
+                </div>
+                <div class="card-body">
+                    <p class="lead mb-4">Select the confirmed or most likely stone type to generate a personalized long-term management plan.</p>
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                {{ form.stone_type|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-clipboard-check me-2"></i>Generate Chronic Plan
+                                </button>
+                                <a href="{% url 'kidney_stones_app:home' %}" class="btn btn-outline-secondary btn-lg ms-2">
+                                    <i class="bi bi-arrow-left me-2"></i>Back to Home
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% if show_results and recommendations %}
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0"><i class="bi bi-list-check me-2"></i>Recommendations for {{ stone_type }} Stones</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group mb-3">
+                        {% for rec in recommendations %}
+                        <li class="list-group-item recommendation-item">{{ rec }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle me-2"></i>Long-term management requires periodic reevaluation of dietary changes, medications, and stone burden by imaging.
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if show_results and interpretation %}
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-clipboard-data me-2"></i>Urine Analysis Interpretation</h5>
+                </div>
+                <div class="card-body">
+                    {% for param, finding in interpretation.items %}
+                        <div class="interpretation-item mb-2">
+                            <strong>{{ param|title|cut:'_'|title }}:</strong> {{ finding }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+{% endblock %} 

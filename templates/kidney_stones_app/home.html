@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Kidney Stone Navigator - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1><i class="bi bi-heart-pulse me-3"></i>Kidney Stone Navigator</h1>
+                <p class="lead">Clinical Decision Support & Patient Education Tool</p>
+                <p>Evidence-based guidance for kidney stone management and prevention</p>
+                <a href="{% url 'kidney_stones_app:patient_profile' %}" class="btn btn-light btn-lg">
+                    <i class="bi bi-arrow-right me-2"></i>Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-4">
+            <div class="feature-card">
+                <i class="bi bi-person-circle"></i>
+                <h4>Patient Profile</h4>
+                <p>Comprehensive patient history and medical conditions assessment for personalized care.</p>
+                <a href="{% url 'kidney_stones_app:patient_profile' %}" class="btn btn-primary">
+                    Create Profile
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="feature-card">
+                <i class="bi bi-droplet"></i>
+                <h4>Urine Analysis</h4>
+                <p>24-hour urine collection interpretation with evidence-based clinical insights.</p>
+                <a href="{% url 'kidney_stones_app:urine_analysis' %}" class="btn btn-primary">
+                    Analyze Results
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="feature-card">
+                <i class="bi bi-exclamation-triangle"></i>
+                <h4>Acute Management</h4>
+                <p>Immediate guidance for acute stone episodes with symptom-based recommendations.</p>
+                <a href="{% url 'kidney_stones_app:acute_management' %}" class="btn btn-primary">
+                    Get Guidance
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="feature-card">
+                <i class="bi bi-calendar-check"></i>
+                <h4>Chronic Management</h4>
+                <p>Long-term management plans tailored to stone type and patient characteristics.</p>
+                <a href="{% url 'kidney_stones_app:chronic_management' %}" class="btn btn-primary">
+                    View Plans
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="feature-card">
+                <i class="bi bi-book"></i>
+                <h4>Educational Resources</h4>
+                <p>Comprehensive educational materials on kidney stone pathophysiology and management.</p>
+                <a href="{% url 'kidney_stones_app:educational_resources' %}" class="btn btn-primary">
+                    Learn More
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="feature-card">
+                <i class="bi bi-search"></i>
+                <h4>Oxalate Finder</h4>
+                <p>Searchable database of food oxalate content for dietary management.</p>
+                <a href="{% url 'kidney_stones_app:oxalate_finder' %}" class="btn btn-primary">
+                    Search Foods
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="medical-card">
+                <h3><i class="bi bi-info-circle me-2"></i>About Kidney Stone Navigator</h3>
+                <p class="lead">Kidney stone disease, also known as nephrolithiasis or urolithiasis, is a disorder in which urinary solutes precipitate to form aggregates of crystalline material in the urinary space.</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h5><i class="bi bi-check-circle text-success me-2"></i>Evidence-Based</h5>
+                        <p>Based on the latest clinical guidelines and research from leading urological societies.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="bi bi-shield-check text-primary me-2"></i>Clinically Validated</h5>
+                        <p>Incorporates validated clinical decision support algorithms and risk assessment tools.</p>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5><i class="bi bi-person-check text-info me-2"></i>Patient-Centered</h5>
+                        <p>Personalized recommendations based on individual patient characteristics and stone type.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="bi bi-graph-up text-warning me-2"></i>Outcome-Focused</h5>
+                        <p>Designed to improve patient outcomes and reduce stone recurrence rates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="bi bi-lightning me-2"></i>Quick Actions</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <a href="{% url 'kidney_stones_app:acute_management' %}" class="btn btn-outline-danger w-100">
+                                <i class="bi bi-exclamation-triangle me-2"></i>Acute Episode
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{% url 'kidney_stones_app:patient_profile' %}" class="btn btn-outline-primary w-100">
+                                <i class="bi bi-person-plus me-2"></i>New Patient
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{% url 'kidney_stones_app:oxalate_finder' %}" class="btn btn-outline-success w-100">
+                                <i class="bi bi-search me-2"></i>Food Search
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{% url 'kidney_stones_app:educational_resources' %}" class="btn btn-outline-info w-100">
+                                <i class="bi bi-book me-2"></i>Learn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
