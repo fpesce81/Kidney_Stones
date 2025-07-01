@@ -17,6 +17,7 @@
                         {% csrf_token %}
                         <div class="col-md-8">
                             {{ form.search_term|as_crispy_field }}
+                            <small class="form-text text-muted">You can search by food name or type (e.g., "Vegetable", "Fruit").</small>
                         </div>
                         <div class="col-md-4 text-end">
                             <button type="submit" class="btn btn-primary btn-lg">
@@ -26,14 +27,14 @@
                     </form>
                     {% if results %}
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover align-middle">
+                            <table class="table table-striped table-hover align-middle oxalate-table">
                                 <thead>
                                     <tr>
-                                        <th>Food</th>
-                                        <th>Type</th>
-                                        <th>Oxalate (mg)</th>
-                                        <th>Serving Size</th>
-                                        <th>Oxalate Level</th>
+                                        <th><a href="?sort=food{% if request.GET.direction == 'asc' and request.GET.sort == 'food' %}&direction=desc{% else %}&direction=asc{% endif %}">Food</a></th>
+                                        <th><a href="?sort=type{% if request.GET.direction == 'asc' and request.GET.sort == 'type' %}&direction=desc{% else %}&direction=asc{% endif %}">Type</a></th>
+                                        <th><a href="?sort=oxalate_mg{% if request.GET.direction == 'asc' and request.GET.sort == 'oxalate_mg' %}&direction=desc{% else %}&direction=asc{% endif %}">Oxalate (mg)</a></th>
+                                        <th><a href="?sort=serving_size{% if request.GET.direction == 'asc' and request.GET.sort == 'serving_size' %}&direction=desc{% else %}&direction=asc{% endif %}">Serving Size</a></th>
+                                        <th><a href="?sort=oxalate_level{% if request.GET.direction == 'asc' and request.GET.sort == 'oxalate_level' %}&direction=desc{% else %}&direction=asc{% endif %}">Oxalate Level</a></th>
                                     </tr>
                                 </thead>
                                 <tbody>

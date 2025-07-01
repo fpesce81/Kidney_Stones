@@ -13,7 +13,6 @@ urlpatterns = [
     path('educational-resources/', views.educational_resources,
          name='educational_resources'),
     path('oxalate-finder/', views.oxalate_finder, name='oxalate_finder'),
-    path('patient-history/', views.patient_history, name='patient_history'),
     path('management-plan/<int:plan_id>/',
          views.management_plan_detail, name='management_plan_detail'),
     path('load-oxalate-data/', views.load_oxalate_data, name='load_oxalate_data'),

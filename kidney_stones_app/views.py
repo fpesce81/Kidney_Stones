@@ -242,27 +242,35 @@ def educational_resources(request):
 
 def oxalate_finder(request):
     """Oxalate Content Finder page"""
+    sort = request.GET.get('sort', 'food')
+    direction = request.GET.get('direction', 'asc')
+    order_prefix = '' if direction == 'asc' else '-'
+    valid_sort_fields = ['food', 'type', 'oxalate_mg', 'serving_size', 'oxalate_level']
+    if sort not in valid_sort_fields:
+        sort = 'food'
+    order_by = f'{order_prefix}{sort}'
+
     if request.method == 'POST':
         form = OxalateSearchForm(request.POST)
         if form.is_valid():
             search_term = form.cleaned_data['search_term']
             if search_term:
                 results = OxalateContent.objects.filter(
-                    Q(food__icontains=search_term) | Q(
-                        type__icontains=search_term)
-                )
+                    Q(food__icontains=search_term) | Q(type__icontains=search_term)
+                ).order_by(order_by)
             else:
-                results = OxalateContent.objects.all()
+                results = OxalateContent.objects.all().order_by(order_by)
         else:
-            results = OxalateContent.objects.all()
+            results = OxalateContent.objects.all().order_by(order_by)
     else:
         form = OxalateSearchForm()
-        results = OxalateContent.objects.all()
+        results = OxalateContent.objects.all().order_by(order_by)
 
     return render(request, 'kidney_stones_app/oxalate_finder.html', {
         'form': form,
         'results': results,
-        'active_page': 'oxalate_finder'
+        'active_page': 'oxalate_finder',
+        'request': request  # Pass request for sorting link state
     })
 
 
@@ -294,20 +302,6 @@ def load_oxalate_data(request):
             return JsonResponse({'status': 'error', 'message': str(e)})
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
-
-
-def patient_history(request):
-    """View patient history and previous management plans"""
-    if request.user.is_authenticated:
-        patient_profiles = PatientProfile.objects.filter(
-            user=request.user).order_by('-created_at')
-    else:
-        patient_profiles = PatientProfile.objects.all().order_by('-created_at')
-
-    return render(request, 'kidney_stones_app/patient_history.html', {
-        'patient_profiles': patient_profiles,
-        'active_page': 'patient_history'
-    })
 
 
 def management_plan_detail(request, plan_id):

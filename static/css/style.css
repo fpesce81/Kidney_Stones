@@ -245,3 +245,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #0056b3;
 }
+
+.oxalate-table thead th,
+.oxalate-table thead th a {
+    color: white !important;
+}
