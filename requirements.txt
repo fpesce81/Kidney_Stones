@@ -3,4 +3,4 @@ pandas
 numpy
 requests
 gunicorn
-whitenoise 
+whitenoise Django==5.2.3
