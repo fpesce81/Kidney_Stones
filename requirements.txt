@@ -3,4 +3,8 @@ pandas
 numpy
 requests
 gunicorn
-whitenoise Django==5.2.3
+whitenoise
+Django==5.2.3
+djangorestframework
+django-crispy-forms
+crispy-bootstrap5
