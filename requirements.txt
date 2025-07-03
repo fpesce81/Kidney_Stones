@@ -1,10 +1,31 @@
-streamlit
-pandas
-numpy
-requests
-gunicorn
-whitenoise
+# Core Django packages
 Django==5.2.3
 djangorestframework
 django-crispy-forms
 crispy-bootstrap5
+
+# Database
+dj-database-url
+psycopg2-binary
+
+# Static files
+whitenoise
+
+# WSGI server
+gunicorn
+
+# Data processing
+pandas
+numpy
+
+# HTTP requests
+requests
+
+# Environment variables
+python-dotenv
+
+# CORS handling
+django-cors-headers
+
+# Streamlit (if still needed)
+streamlit

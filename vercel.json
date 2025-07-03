@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ],
+  "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput",
+  "outputDirectory": "staticfiles",
+  "installCommand": "pip install -r requirements.txt",
+  "framework": null,
+  "functions": {
+    "api/index.py": {
+      "runtime": "python3.10",
+      "maxDuration": 60
+    }
+  },
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "kidney_stones_django.settings_production"
+  }
+}
