@@ -1,0 +1,13 @@
+{
+  "name": "netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for Django app",
+  "main": "django_app.js",
+  "dependencies": {
+    "@netlify/functions": "^3.0.0",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "@netlify/plugin-functions": "^1.4.0"
+  }
+}

@@ -6,17 +6,23 @@ crispy-bootstrap5
 
 # Database
 dj-database-url
-psycopg2-binary
+psycopg2-binary>=2.9.9,<3.0.0
 
 # Static files
-whitenoise
+whitenoise==6.9.0
 
 # WSGI server
-gunicorn
+gunicorn==21.2.0
 
 # Data processing
-pandas
-numpy
+pandas>=2.0.0,<3.0.0
+numpy>=1.24.0,<2.0.0
+
+# Environment variables
+python-dotenv==1.0.1
+
+# Production dependencies
+psycopg2-binary>=2.9.9,<3.0.0
 
 # HTTP requests
 requests
