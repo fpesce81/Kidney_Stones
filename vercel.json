@@ -1,21 +1,25 @@
 {
   "version": 2,
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/api"
+      "src": "api/index.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
+      }
     }
   ],
-  "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput",
-  "outputDirectory": "staticfiles",
-  "installCommand": "pip install -r requirements.txt",
-  "framework": null,
-  "functions": {
-    "api/index.py": {
-      "runtime": "python3.10",
-      "maxDuration": 60
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "api/index.py"
     }
-  },
+  ],
   "env": {
     "DJANGO_SETTINGS_MODULE": "kidney_stones_django.settings_production"
   }
