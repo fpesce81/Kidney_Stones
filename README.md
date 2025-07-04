@@ -5,7 +5,7 @@ This is a Django web application for clinical decision support and patient educa
 ## Table of Contents
 - [Local Development Setup](#local-development-setup)
 - [Running the Application Locally](#running-the-application-locally)
-- [Deployment to Netlify](#deployment-to-netlify)
+- [Deployment to Vercel](#deployment-to-vercel)
 - [Environment Variables](#environment-variables)
 - [Project Structure](#project-structure)
 
@@ -60,32 +60,18 @@ This is a Django web application for clinical decision support and patient educa
 
 3. For admin access, visit `http://127.0.0.1:8000/admin/`
 
-## Deployment to Netlify
+## Deployment to Vercel
 
-This application is configured for deployment on Netlify using serverless functions. Follow these steps to deploy:
+Follow these steps to deploy on [Vercel](https://vercel.com):
 
-1. **Push your code to a Git repository** (GitHub, GitLab, or Bitbucket)
-
-2. **Deploy to Netlify:**
-   - Log in to your [Netlify](https://app.netlify.com/) account
-   - Click on "New site from Git"
-   - Select your Git provider and repository
-   - Configure the build settings:
-     - Build command: `./build.sh`
-     - Publish directory: `staticfiles`
-   - Click "Deploy site"
-
-3. **Set up environment variables in Netlify:**
-   - Go to Site settings > Build & deploy > Environment
-   - Add the following required variables:
-     - `DJANGO_SECRET_KEY`
-     - `DJANGO_SETTINGS_MODULE=kidney_stones_django.production_settings`
-     - `PYTHON_VERSION=3.11.0`
-   - Add any other environment variables from your `.env` file
-
-4. **Configure build settings (if not detected automatically):**
-   - Set the Python version to 3.11.0 in the runtime.txt file
-   - Ensure the build command is set to `./build.sh`
+1. **Push your code to a Git repository** (GitHub, GitLab, or Bitbucket).
+2. **Import the project in Vercel** and configure the environment variables:
+   - `DJANGO_SECRET_KEY`
+   - `DJANGO_SETTINGS_MODULE=kidney_stones_django.settings_production`
+   - `DATABASE_URL` (optional, uses SQLite if not set)
+3. Vercel will automatically run `python vercel_build.py` during the build step.
+4. After deployment, your Django app will be served via Vercel's serverless
+   functions and static CDN.
 
 ## Environment Variables
 
@@ -112,19 +98,17 @@ SECURE_SSL_REDIRECT=True
 Kidney_Stones/
 ├── kidney_stones_app/        # Main Django app
 ├── kidney_stones_django/     # Project settings
-├── netlify/                  # Netlify serverless functions
 ├── static/                   # Static files
 ├── templates/                # HTML templates
 ├── .env.example              # Example environment variables
-├── .gitignore               
-├── manage.py                
-├── netlify.toml             # Netlify configuration
+├── .gitignore
+├── manage.py
 ├── requirements.txt          # Python dependencies
-└── runtime.txt              # Python version for Netlify
+└── runtime.txt              # Python version for development
 ```
 
 ## Troubleshooting
 
-- If you encounter build issues on Netlify, check the build logs in the Netlify dashboard
-- Ensure all environment variables are properly set in Netlify
+- If you encounter build issues on Vercel, check the build logs in the Vercel dashboard
+- Ensure all environment variables are properly set in Vercel
 - For local development, make sure your Python version matches the one in runtime.txt
