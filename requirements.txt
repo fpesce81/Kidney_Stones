@@ -21,14 +21,8 @@ numpy>=1.24.0,<2.0.0
 # Environment variables
 python-dotenv==1.0.1
 
-# Production dependencies
-psycopg2-binary>=2.9.9,<3.0.0
-
 # HTTP requests
 requests
-
-# Environment variables
-python-dotenv
 
 # CORS handling
 django-cors-headers
